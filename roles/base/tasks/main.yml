@@ -1,0 +1,13 @@
+- name: Update APT package cache
+  action: apt update_cache=yes
+
+- name: install essential packages
+  apt: pkg={{ item }} state=latest
+  sudo: true
+  with_items:
+    - build-essential
+    - git-core
+    - python-setuptools
+    - python-software-properties
+    - nodejs
+    - libgmp3-dev
